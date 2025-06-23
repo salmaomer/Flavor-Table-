@@ -3,24 +3,26 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Page Title</title>
+    <title>Recipe Search</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' href='css/searchstyle.css'>
-
 </head>
-<body >
-
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="searchs">🔍 Search Recipes</a></li>
+            <li><a href="randoms">🎲 Random Recipe</a></li>
+            <li><a href="favorites">❤️ Favorites</a></li>
+        </ul>
+    </nav>
     <form id="ingredients">
         <label for="insart">Enter Ingredients:</label>
         <input type="text" id="insart" placeholder="ingredients ...">
-
         <button id="addButton" type="submit">Add Ingredients</button>
     </form>
 
+    <div id="container"></div>
 
-    <div id="container">
-        
-    </div>
     <script src="js/searchapp.js"></script>
 </body>
 </html>

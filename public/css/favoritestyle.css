@@ -37,39 +37,6 @@ body {
 }
 
 
-/* Form Styling */
-form#ingredients {
-  background-color: #ffffff;
-  padding: 25px 30px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-form input {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  flex: 1;
-}
-
-form button {
-  padding: 10px 20px;
-  background-color: #e67e22;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #cf711f;
-}
 
 /* Cards Container */
 #container {
@@ -78,9 +45,16 @@ form button:hover {
   justify-content: center;
   gap: 20px;
 }
+#favorites-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
 
-/* Card Style */
+/* Individual Card Style */
 .cards {
+  position: relative;
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -100,6 +74,7 @@ form button:hover {
   object-fit: cover;
 }
 
+/* Content Inside Card */
 .card-content {
   padding: 15px;
 }
@@ -111,12 +86,12 @@ form button:hover {
 }
 
 .card-content p {
-  margin: 8px 0 4px;
+  margin: 8px 0 12px;
   font-size: 0.95rem;
   line-height: 1.5;
 }
 
-/* Lists Styling */
+/* Ingredients List Styling */
 .card-content ul {
   padding-left: 20px;
   margin: 8px 0 15px;
@@ -130,22 +105,16 @@ form button:hover {
   line-height: 1.4;
 }
 
-/* Optional: Color highlights for Used / Missed */
+/* Optional highlights */
 .card-content p strong {
   color: #27ae60;
 }
 
+/* ✅ Highlight the second <ul> (typically ingredients) */
 .card-content p:nth-of-type(2) + ul {
-  border-left: 3px solid #27ae60;
+  border-left: 3px solid  #27ae60;
   padding-left: 10px;
 }
-
-.card-content p:nth-of-type(3) + ul {
-  border-left: 3px solid #c0392b;
-  padding-left: 10px;
-}
-
-
 /* Save Button as Heart */
 
 .save-btn {
@@ -174,3 +143,24 @@ form button:hover {
   color: #e74c3c;
 }
 
+/* زر الحذف ❌ */
+.delete-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #fff;
+  border: 2px solid #c0392b;
+  color: #c0392b;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+  color: white;
+}

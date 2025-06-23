@@ -17,6 +17,4 @@ Routerss.get('/Random', async (req, res) => {
 });
 
 
-;
-
 module.exports = Routerss;
