@@ -36,8 +36,6 @@ body {
   color: #d35400;
 }
 
-
-
 /* Cards Container */
 #container {
   display: flex;
@@ -131,7 +129,6 @@ body {
   background-color: #e74c3c;
   color: white;
 }
-
 
 .save-btn:hover {
   color: #e74c3c;
