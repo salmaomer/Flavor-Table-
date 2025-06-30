@@ -36,8 +36,6 @@ body {
   color: #d35400;
 }
 
-
-
 /* Cards Container */
 #container {
   display: flex;
@@ -45,6 +43,7 @@ body {
   justify-content: center;
   gap: 20px;
 }
+
 #favorites-container{
   display: flex;
   flex-wrap: wrap;
@@ -115,8 +114,8 @@ body {
   border-left: 3px solid  #27ae60;
   padding-left: 10px;
 }
-/* Save Button as Heart */
 
+/* Save Button as Heart */
 .save-btn {
   position: absolute;
   top: 10px;
@@ -137,13 +136,11 @@ body {
   background-color: #e74c3c;
   color: white;
 }
-
-
 .save-btn:hover {
   color: #e74c3c;
 }
 
-/* زر الحذف ❌ */
+/* delete button */
 .delete-btn {
   position: absolute;
   top: 10px;
@@ -164,3 +161,57 @@ body {
   background-color: #c0392b;
   color: white;
 }
+
+/* textarea */
+.card-content textarea {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  background-color: #fdfdfd;
+  color: #333;
+  transition: border 0.3s ease;
+}
+
+.card-content textarea:focus {
+  outline: none;
+  border-color: #e67e22;
+  box-shadow: 0 0 5px rgba(230, 126, 34, 0.4);
+}
+
+textarea#messageli {
+  height: 139px;
+  width: 166px;
+}
+
+textarea#message {
+  height: 157px;
+  width: 99.9%;
+}
+
+/* Update Button */
+.update-btn {
+  background-color: #27ae60;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.update-btn:hover {
+  background-color: #219150;
+  transform: scale(1.02);
+}
+
