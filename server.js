@@ -43,6 +43,10 @@ app.get('/', (req, res) => {
 const SQLcrud = require('./routes/CRUD');
 app.use('/recipes',SQLcrud);
 
+//Register And Log In
+const Auth = require('./routes/uath');
+app.use('/connect',Auth)
+
 
 
 
