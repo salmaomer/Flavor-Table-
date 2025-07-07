@@ -1,26 +1,26 @@
 const express = require('express');
 
-const rout = express.Router();
+const router = express.Router();
 const pg = require('pg');
-rout.use(express.json()); 
+router .use(express.json()); 
 
 const pool = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
 });
 
 /* Show */
-rout.get("/all", async (req, res) => {
+router.get("/all", async (req, res) => {
   try {
     const result = await pool.query("SELECT * FROM recipe");
     res.json(result.rows);
   } 
   catch (error) {
     console.error("Fetch from DB Error:", error);
-    res.status(500).json({ error: "Failed to load recipes from DB" });
+    res.status(500).json({ error: "Failed to load recipe from DB" });
   }
 });
 /* Insert */
-rout.post("/save", async (req, res) => {
+router.post("/save", async (req, res) => {
   const { title, image, instructions, ingredients, readyin } = req.body;
 
   try {
@@ -39,7 +39,7 @@ rout.post("/save", async (req, res) => {
   }
 });
 /* Delete */
-rout.delete("/delete/:id", async (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -52,7 +52,7 @@ rout.delete("/delete/:id", async (req, res) => {
   }
 });
 /* Update */
-rout.put("/update/:id", async (req, res) => {
+router.put("/update/:id", async (req, res) => {
   const { id } = req.params;
   const { instructions, ingredients } = req.body;
   console.log(req.body)
@@ -73,4 +73,4 @@ rout.put("/update/:id", async (req, res) => {
   }
 });
 
-module.exports = rout;
+module.exports = router;
