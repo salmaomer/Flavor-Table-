@@ -12,7 +12,7 @@ Routerss.get('/Random',RouteGuard, async (req, res) => {
       message: `Hey ${req.user.username}, enjoy your random recipes!`,
       data: response.data
     });
-    console.log(response.data);
+    console.log("55555",response.data);
   } 
   catch (e) {
     console.error('Error fetching data:', e.message);
