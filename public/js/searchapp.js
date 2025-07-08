@@ -99,6 +99,8 @@ function RenderData(recipeS) {
 
 async function saveToDatabase(recipe) {
   try {
+    const token = localStorage.getItem("token");
+
     const allIngredients = recipe.analyzedInstructions?.flatMap(instruction =>
       instruction.steps?.flatMap(step =>
         step.ingredients?.map(ing => ing.name) || []
@@ -110,7 +112,8 @@ async function saveToDatabase(recipe) {
     const response = await fetch("/recipes/save", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
       },
       body: JSON.stringify({
         title: recipe.title,
@@ -124,16 +127,14 @@ async function saveToDatabase(recipe) {
     const data = await response.json();
 
     if (response.ok) {
-      alert("Recipe saved to database!");
-    } 
-    else {
-      alert("Failed to save recipe.");
-      console.error(data);
+      alert("✅ Recipe saved to database!");
+    } else {
+      alert("❌ Failed to save recipe.");
+      console.error("Save error:", data);
     }
-  } 
-  catch (error) {
+  } catch (error) {
     console.error("Error saving to DB:", error.message);
-    alert("An error occurred.");
+    alert("❌ An error occurred while saving.");
   }
 }
 
